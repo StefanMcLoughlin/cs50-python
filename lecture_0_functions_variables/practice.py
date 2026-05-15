@@ -1,0 +1,6 @@
+name = input("Wie heisst Du? ").strip().title()
+print("Willkommen,",name)
+city = input("Wo wohnst Du? ").strip().capitalize()
+print("Du wohnst in", city)
+food = input("Was ist Dein Lieblingsessen? ").strip()
+print("Dein Lieblingsessen ist", food)
