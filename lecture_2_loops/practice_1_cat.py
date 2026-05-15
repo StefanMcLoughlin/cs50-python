@@ -1,2 +1,2 @@
-for i in range(10):
+for _ in range(3):
     print("meow")
