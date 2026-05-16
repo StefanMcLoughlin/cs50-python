@@ -1,7 +1,16 @@
-passwort = input("Bitte geben sie ihr Passwort ein: ")
+def main():
+    passwort()
 
-if passwort == "python123":
-    print("Zugriff erlaubt")
-else:
-    print ("Falsches Passwort")
+def passwort():
+    while True:
 
+        eingabe = input("Bitte Passwort eingeben: ")
+        
+        if eingabe == "python123":
+            print("Zugriff erlaubt")
+            break
+
+        else:
+            print("Falsches Passwort")
+
+main()
