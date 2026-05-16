@@ -10,3 +10,6 @@ elif gewinn == verlust:
     print("Breakeven")
 else:
     print("Strategie nicht profitabel")
+
+differenz = gewinn - verlust
+print (f"Gewinnüberschuss: {differenz}")
