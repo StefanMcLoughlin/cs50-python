@@ -1,16 +1,10 @@
-def main():
-    passwort()
-
-def passwort():
-    while True:
-
-        eingabe = input("Bitte Passwort eingeben: ")
-        
-        if eingabe == "python123":
-            print("Zugriff erlaubt")
-            break
-
-        else:
-            print("Falsches Passwort")
-
-main()
+Coin = input("Welcher Coin ist dein Favorit? ")
+match Coin:
+    case "BTC" | "Bitcoin":
+        print("Der Klassiker")
+    case "SOL" | "Solana":
+        print("Solana Ecosystem")
+    case "DOGE" | "Dogecoin":
+        print("Meme Power")
+    case _:
+        print("Interessante Wahl")
