@@ -36,7 +36,7 @@ def main():
             print("Konto leer")
 
         else:
-            print(f"Neuer Kontostand {neuer_kontostand}")
+            print(f"Neuer Kontostand: {neuer_kontostand}")
 
 
 def kontostand_neu(kontostand, auszahlung):
