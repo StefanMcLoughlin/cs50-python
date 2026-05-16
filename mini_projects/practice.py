@@ -1,7 +1,7 @@
-alter = int(input("Wie alt bist Du? "))
-if alter < 18:
-    print("Du bist minderjährig")
-elif alter < 65:
-    print("Du bist erwachsen")
+passwort = input("Bitte geben sie ihr Passwort ein: ")
+
+if passwort == "python123":
+    print("Zugriff erlaubt")
 else:
-    print("Du bist Rentner")
+    print ("Falsches Passwort")
+
