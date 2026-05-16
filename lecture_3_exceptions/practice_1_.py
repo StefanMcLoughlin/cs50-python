@@ -9,7 +9,6 @@ def get_int():
         except ValueError:
             print("x is not an interger")
         else:
-            break
-    return x
+            return x
 
 main()
