@@ -22,3 +22,14 @@ Wenn Gewinnquote > 60:
 → „Starke Strategie“
 """
 
+gewinntrades = int(input("Anzahl Gewinntrades: "))
+verlusttrades = int(input("Anzahl Verlusttrades: "))
+
+gesamtanzahl = gewinntrades + verlusttrades
+print(f"Gesamtanzahl Trades: {gesamtanzahl}")
+
+gewinnquote = gewinntrades / gesamtanzahl * 100
+print(f"Gewinnquote: {gewinnquote} % ")
+
+if gewinnquote >60:
+    print("Starke Strategie")
