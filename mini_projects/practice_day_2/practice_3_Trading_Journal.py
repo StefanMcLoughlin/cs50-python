@@ -29,7 +29,7 @@ gesamtanzahl = gewinntrades + verlusttrades
 print(f"Gesamtanzahl Trades: {gesamtanzahl}")
 
 gewinnquote = gewinntrades / gesamtanzahl * 100
-print(f"Gewinnquote: {gewinnquote} % ")
+print(f"Gewinnquote: {gewinnquote:.2f} % ")
 
 if gewinnquote >60:
     print("Starke Strategie")
