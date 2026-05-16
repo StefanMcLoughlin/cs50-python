@@ -1,15 +1,12 @@
-# Uebung 4 - Einfache Trading Logik
-# Fragestellung: Gewinn? Verlust? - Wenn Gewinn groesser als Verlust -> Strategie profitabel, sonst -> Strategie nicht profitabel
+# Uebung 5 - AI Assistent Simulation
+# Fragestellung: Frage den Benutzer: Welches Problem hast Du? Wenn "API"-> "Pruefe JSON response", wenn "Python" -> "Ueberpruefe einrueckung", wenn "Login" -> "Pruefe Benutzernamen und Passwort", sonst -> "Unbekannter Fehler"
 
-gewinn = int(input("Bitte trage die Summe der Gewinntrades ein: "))
-verlust = int(input("Bitte trage die Summe der Verlusttrades ein: "))
-
-if gewinn > verlust:
-    print("Strategie profitabel")
-elif gewinn == verlust:
-    print("Breakeven")
+problem = input("Welches Problem hast Du? ").lower()
+if problem == "api":
+    print("Prüfe die JSON response")
+elif problem == "python":
+    print("Überprüfe die Einrückung")
+elif problem == "login":
+    print("Prüfe Benutzernamen und Passwort")
 else:
-    print("Strategie nicht profitabel")
-
-differenz = gewinn - verlust
-print (f"Gewinnüberschuss: {differenz}")
+    print("Unbekannter Fehler")
