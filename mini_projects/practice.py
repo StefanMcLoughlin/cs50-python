@@ -1,10 +1,10 @@
-Coin = input("Welcher Coin ist dein Favorit? ")
-match Coin:
-    case "BTC" | "Bitcoin":
-        print("Der Klassiker")
-    case "SOL" | "Solana":
-        print("Solana Ecosystem")
-    case "DOGE" | "Dogecoin":
-        print("Meme Power")
-    case _:
-        print("Interessante Wahl")
+coin = input("Welcher Coin ist dein Favorit? ")
+
+if coin == "BTC" or coin == "Bitcoin":
+    print("Der Klassiker")
+elif coin == "SOL" or coin == "Solana":
+    print("Solana Ecosystem")
+elif coin == "DOGE" or coin == "Dogecoin":
+    print("Meme Power")
+else:
+    print("Interessante Wahl")
