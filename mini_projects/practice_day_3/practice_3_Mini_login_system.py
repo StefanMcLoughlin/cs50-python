@@ -55,9 +55,10 @@ Login erfolgreich
 """
 
 
-i = 0
+attempts = 0
+MAX_ATTEMPTS = 3
 
-while i < 3:
+while attempts < MAX_ATTEMPTS:
     username = input("Bitte Benutzernamen eingeben: ")
     password = input("Bitte Passwort eingeben: ")
     if username == "stefan" and password == "python123":
@@ -65,7 +66,7 @@ while i < 3:
         break
     else:
         print("Falsche Zugangsdaten")
-        i += 1
+        attempts += 1
 
-if i == 3:
+if attempts == 3:
     print("Zu viele Fehlversuche")
