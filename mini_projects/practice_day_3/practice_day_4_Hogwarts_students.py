@@ -73,11 +73,54 @@ input()
 und speichere sie in der Liste.
 """
 
+
 students = [
-    {"name": "Harry", "house": "Gryffindor", "patronus": "stud"},
-    {"name": "Hermione", "house": "Gryffindor", "patronus": "Otter"},
-    {"name": "Ron", "house": "Gryffindor", "patronus": "Jack russel terrier"},
-    {"name": "Draco", "house": "Slytherin", "patronus": "Unknown"},
+        {"name": "Harry", "house": "Gryffindor", "patronus": "stud"},
+        {"name": "Hermione", "house": "Gryffindor", "patronus": "Otter"},
+        {"name": "Ron", "house": "Gryffindor", "patronus": "Jack russel terrier"},
+        {"name": "Draco", "house": "Slytherin", "patronus": "Unknown"},
 ]
-for student in students:
-    print(student["name"], student["house"], student["patronus"], sep=" | ")
+
+def main():
+    support_bot()
+
+
+def support_bot():
+    while True:
+        task = input("Was moechtest Du machen? ").strip().lower()
+
+        if task == "exit":
+            print("Vorgang beendet")
+            break
+
+        elif "studentenliste" in task :
+            show_students()
+
+        elif "hinzufügen" in task :
+            add_student()
+
+        else:
+            print("Unbekannter Befehl")
+
+    
+def show_students():
+    for student in students:
+        print(student["name"], student["house"], student["patronus"], sep=" | ")
+
+
+def add_student():
+    name = input("Name: ")
+    house = input("House: ")
+    patronus = input("Patronus: ")
+
+    new_student = {
+        "name": name,
+        "house": house,
+        "patronus": patronus,
+        }
+
+    students.append(new_student)
+    print("Student hinzugefügt")
+
+main()
+
