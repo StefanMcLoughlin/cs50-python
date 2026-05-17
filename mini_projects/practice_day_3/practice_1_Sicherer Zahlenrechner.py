@@ -41,3 +41,20 @@ Fehlerbehandlung
 Wiederverwendbare Funktionen
 Input-Validierung
 """
+
+def main():
+
+    x = get_number("What's x? ")
+    y = get_number("What's y? ")
+    z = x + y
+
+    print(f"Ergebnis: {z}")
+
+def get_number(prompt):
+    while True:
+        try:
+           return int(input(prompt))
+        except ValueError:
+            print("Bitte eine gültige Zahl eingeben! ")
+            
+main()
