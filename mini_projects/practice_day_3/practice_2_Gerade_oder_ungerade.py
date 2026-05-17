@@ -60,8 +60,8 @@ def main():
         else:
             print("Ungerade Zahl")
     
-        i = input("Nochmal prüfen? ")
-        if i == "nein":
+        answer = input("Nochmal prüfen? ").strip().lower()
+        if answer == "nein":
             break
 
 def get_number(prompt):
