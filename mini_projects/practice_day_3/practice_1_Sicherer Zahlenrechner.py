@@ -46,9 +46,8 @@ def main():
 
     x = get_number("What's x? ")
     y = get_number("What's y? ")
-    z = x + y
-
-    print(f"Ergebnis: {z}")
+    
+    print(f"Ergebnis: {x + y}")
 
 def get_number(prompt):
     while True:
