@@ -5,10 +5,14 @@ def main():
 
 
 def test_square():
-    if square (2) != 4:
-        print("2 zum quadrat war nicht 4")
-    if square (3) != 9:
-        print("3 zum quadrat war nicht 9")
+    try:
+        assert square(2) == 4
+    except AssertionError:
+        print("2 zum Quadrat war nicht 4")
+    try:
+        assert square(3) == 9
+    except AssertionError:
+        print("3 zum Quadrat war nicht 9")
 
 if __name__ == "__main__":
     main()
