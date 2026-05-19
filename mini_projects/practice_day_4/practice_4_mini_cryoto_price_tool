@@ -46,13 +46,31 @@ import requests
 import json
 
 def main():
-    token = get_id()
-    link = build_url(token)
-    data = get_data(link)
-    if data is None:
-        return
-    print_price(data, token)
+    while True:
+        if support_bot() == "exit":
+            return
+        token = get_id()
+        link = build_url(token)
+        data = get_data(link)
+        if data is None:
+                return
+        print_price(data, token)
 
+        answer = input("Nochmal pruefen? ")
+        if answer == "nein":
+            break
+
+
+def support_bot():
+    while True:
+        task = input("Was moechtest Du machen? ").strip().lower()
+
+        if "price" in task:
+            break
+        elif "exit" in task:
+            return "exit"
+        else:
+            print("Unbekannter Befehl")
 
 def get_id():
     token = (input("Coin: ")).lower()
