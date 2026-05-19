@@ -49,6 +49,8 @@ def main():
     token = get_id()
     link = build_url(token)
     data = get_data(link)
+    if data is None:
+        return
     print_price(data, token)
 
 
@@ -56,17 +58,37 @@ def get_id():
     token = (input("Coin: ")).lower()
     return token
 
+
 def build_url(token):
     link = f"https://api.coingecko.com/api/v3/simple/price?ids={token}&vs_currencies=usd"
     return link
 
+
 def get_data(link):
-    response = requests.get(link)
-    data = response.json()
-    return data
+    try:
+        response = requests.get(link)
+    except requests.RequestException:
+        print("Fehler: Verbindung zur API fehlgeschlagen")
+        return None
+    
+    if response.status_code != 200:
+        print("Fehler: API konnte nicht erfolgreich abgefragt werden")
+        return None
+    
+    return response.json()
+
 
 def print_price(data, token):
+    if token not in data:
+        print("Coin nicht gefunden. Nutze Token-ID. z.B. bitcoin statt btc")
+        return
+    
+    if "usd" not in data[token]:
+        print("USD Preis nicht gefunden.")
+        return
+    
     print(f"{token}: {data[token]["usd"]} USD")
+
 
 main()
     
