@@ -43,9 +43,11 @@ und zeige am Ende den Verlauf.
 """
 
 import requests
-import json
 
 def main():
+
+    history = []
+
     while True:
         if support_bot() == "exit":
             return
@@ -53,11 +55,17 @@ def main():
         link = build_url(token)
         data = get_data(link)
         if data is None:
-                return
+            continue
         print_price(data, token)
+        history.append({
+            "coin": token,
+            "price": data[token]["usd"]
+        })
 
-        answer = input("Nochmal pruefen? ")
+        answer = input("Weitere Frage stellen? ").strip().lower()
         if answer == "nein":
+            for coin in history:
+                print(coin)
             break
 
 
@@ -105,7 +113,7 @@ def print_price(data, token):
         print("USD Preis nicht gefunden.")
         return
     
-    print(f"{token}: {data[token]["usd"]} USD")
+    print(f"{token}: {data[token]['usd']} USD")
 
 
 main()
