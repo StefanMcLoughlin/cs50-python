@@ -65,7 +65,9 @@ def main():
         answer = input("Weitere Frage stellen? ").strip().lower()
         if answer == "nein":
             for coin in history:
-                print(coin)
+                print("\nSuchverlauf")
+                for entry in history:
+                    print(f"- {entry['coin'].title()}: {entry['price']:,.2f}")
             break
 
 
