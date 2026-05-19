@@ -1,0 +1,74 @@
+"""
+Übung 4 — Mini Crypto Price Tool
+Schwierigkeitsgrad: Anspruchsvoll
+Ziel
+
+Kombiniere fast alles bisher Gelernte.
+
+Aufgabe
+
+Baue ein kleines Crypto Tool.
+
+Der User gibt ein:
+
+Coin:
+
+Beispiel:
+
+bitcoin
+Das Programm soll:
+eine API anfragen
+den aktuellen Preis holen
+den Preis anzeigen
+Anforderungen
+Nutze:
+requests
+try/except
+Funktionen
+Dictionaries
+JSON
+Zusätzliche Anforderungen
+Wenn Coin nicht existiert:
+Coin nicht gefunden
+Das Programm soll erneut fragen:
+Weitere Suche?
+Bonus Challenge
+
+Speichere alle gesuchten Coins in:
+
+einer Liste
+oder einem Dictionary
+
+und zeige am Ende den Verlauf.
+"""
+
+import requests
+import json
+
+def main():
+    token = get_id()
+    link = build_url(token)
+    data = get_data(link)
+    print_price(data, token)
+
+
+def get_id():
+    token = (input("Coin: ")).lower()
+    return token
+
+def build_url(token):
+    link = f"https://api.coingecko.com/api/v3/simple/price?ids={token}&vs_currencies=usd"
+    return link
+
+def get_data(link):
+    response = requests.get(link)
+    data = response.json()
+    return data
+
+def print_price(data, token):
+    print(f"{token}: {data[token]["usd"]} USD")
+
+main()
+    
+
+
