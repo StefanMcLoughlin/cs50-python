@@ -46,28 +46,36 @@ wo die Songnamen im JSON liegen
 Das ist EXTREM gutes Training.
 """
 
-
 import requests
 import json
 
 def main():
-    song_request()
-
-   
-        
-
-def song_request():
-
-    term = input("Künstler: ").strip().title()
-    limit = input("Anzahl der songs: ")
-    link = f"https://itunes.apple.com/search?entity=song&limit={limit}&term={term}"
+    artist = get_term()
+    amount = get_limit()
+    link = build_url(artist, amount)
+    data = get_data(link)
+    print_songs(data)
     
-    response = requests.get(link)
+def get_term():
+    artist = input("Künstler: ").strip().title()
+    return artist 
 
-    o = response.json()
-    for result in o["results"]:
+def get_limit():
+    amount = int(input("Anzahl der songs: "))
+    return amount
+
+def build_url(artist, amount):
+    link = f"https://itunes.apple.com/search?entity=song&limit={amount}&term={artist}"
+    return link
+
+def get_data(link):
+    response = requests.get(link)
+    data = response.json()
+    return data
+
+def print_songs(data):
+    for result in data["results"]:
         print(result["trackName"])
 
-    
 
 main()
