@@ -46,7 +46,7 @@ def main():
     i = 0
     while i < 5:
         coinflip()
-        i = i + 1
+        i += 1
 
 def coinflip():
     coin = choice(["Kopf", "Zahl"])
